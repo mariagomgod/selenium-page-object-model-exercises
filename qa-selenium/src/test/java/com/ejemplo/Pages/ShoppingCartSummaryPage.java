@@ -13,9 +13,11 @@ public class ShoppingCartSummaryPage extends BasePage {
         super(driver);
     }
 
+    By cartQuantityLabelLocator = By.id("summary_products_quantity");
+
     public void verificationItemAddedInShoppingCart() {
         WebElement cartQuantityLabel = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(By.id("summary_products_quantity"))
+                ExpectedConditions.visibilityOfElementLocated(cartQuantityLabelLocator)
         );
 
         String numProductsLabelText = cartQuantityLabel.getText().trim();

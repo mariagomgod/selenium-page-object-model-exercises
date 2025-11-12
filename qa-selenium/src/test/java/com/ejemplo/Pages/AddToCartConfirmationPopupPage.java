@@ -12,9 +12,11 @@ public class AddToCartConfirmationPopupPage extends BasePage {
         super(driver);
     }
 
+    By checkoutButtonLocator = By.xpath("//a[@title='Proceed to checkout']");
+
     public void checkout() {
         WebElement proceedToCheckoutButton = wait.until(
-                ExpectedConditions.elementToBeClickable(By.xpath("//a[@title='Proceed to checkout']"))
+                ExpectedConditions.elementToBeClickable(checkoutButtonLocator)
         );
         proceedToCheckoutButton.click();
     }

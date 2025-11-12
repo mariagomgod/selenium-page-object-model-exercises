@@ -11,9 +11,11 @@ public class ProductDetailPage extends BasePage {
         super(driver);
     }
 
+    By addToCartButtonLocator = By.xpath("//p[@id='add_to_cart']/button");
+
     public void clickAddToCartButton() {
         WebElement addToCartButton = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[@id='add_to_cart']/button"))
+                ExpectedConditions.visibilityOfElementLocated(addToCartButtonLocator)
         );
         addToCartButton.click();
     }

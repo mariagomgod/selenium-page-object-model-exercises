@@ -11,9 +11,13 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
+    By emailAddressLocator = By.id("email");
+    By passwordLocator = By.id("passwd");
+    By submitLoginLocator = By.id("SubmitLogin");
+
     public void setEmailAddress(String email) {
         WebElement emailTextbox = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(By.id("email"))
+                ExpectedConditions.visibilityOfElementLocated(emailAddressLocator)
         );
         emailTextbox.clear();
         emailTextbox.sendKeys(email);
@@ -21,7 +25,7 @@ public class LoginPage extends BasePage {
 
     public void setPassword(String password) {
         WebElement passwordTextbox = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(By.id("passwd"))
+                ExpectedConditions.visibilityOfElementLocated(passwordLocator)
         );
         passwordTextbox.clear();
         passwordTextbox.sendKeys(password);
@@ -29,7 +33,7 @@ public class LoginPage extends BasePage {
 
     public void clickSignInButton() {
         WebElement signInButton = wait.until(
-                ExpectedConditions.elementToBeClickable(By.id("SubmitLogin"))
+                ExpectedConditions.elementToBeClickable(submitLoginLocator)
         );
         signInButton.click();
     }

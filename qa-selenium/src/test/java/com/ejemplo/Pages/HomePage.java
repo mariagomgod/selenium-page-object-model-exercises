@@ -13,16 +13,19 @@ public class HomePage extends BasePage {
         super(driver);
     }
 
+    By signInButtonLocator = By.cssSelector("a.login");
+    By productLocator = By.cssSelector("a.product-name");
+
     public void clickSignInButton() {
         WebElement signInLink = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a.login"))
+                ExpectedConditions.visibilityOfElementLocated(signInButtonLocator)
         );
         signInLink.click();
     }
 
     public void clickOnFirstProduct() {
         List<WebElement> productLinks = wait.until(
-                ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("a.product-name"))
+                ExpectedConditions.visibilityOfAllElementsLocatedBy(productLocator)
         );
         WebElement firstProductLink = wait.until(
                 ExpectedConditions.elementToBeClickable(productLinks.get(0))

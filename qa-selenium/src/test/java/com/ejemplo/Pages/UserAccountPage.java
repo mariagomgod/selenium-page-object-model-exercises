@@ -11,9 +11,11 @@ public class UserAccountPage extends BasePage {
         super(driver);
     }
 
+    By homeLinkLocator = By.cssSelector("a.home");
+
     public void navigateToHomePage() {
         WebElement homeLink = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a.home"))
+                ExpectedConditions.visibilityOfElementLocated(homeLinkLocator)
         );
         homeLink.click();
     }
